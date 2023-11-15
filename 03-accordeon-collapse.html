@@ -7,6 +7,18 @@
     <title>Accordéon avec x-collapse</title>
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<style>
+
+  .ouvert {
+    background-color: #4caf50; 
+  color: white;
+  border: 2px solid #4caf50; 
+  border-radius: 4px; 
+  padding: 8px 16px; 
+  font-size: 16px; 
+  cursor: pointer;
+}
+</style>
 
   </head>
   <body>
@@ -14,19 +26,20 @@
 
     <div class="accordeon" x-data="{expanded: 0,}">
       <section>
-        <button @click="expanded = 1">bouton 1</button>
+        <button :class="{ ouvert: expanded === 1, }" @click="expanded = 1">bouton 1</button>
         <p x-show="expanded === 1" x-collapse.duration.1000ms.scale.origine.top> Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga reiciendis vel ipsum eaque rem in ratione 
           fugiat qui voluptatem minus esse temporibus doloremque aspernatur id, pariatur praesentium, possimus nam? Tempora.</p>
       </section>
       <section>
-        <button @click="expanded = 2">bouton 2</button>
+        <button :class="{ ouvert: expanded === 2, }" @click="expanded = 2">bouton 2</button>
         <p x-show="expanded === 2" x-collapse.duration.1000ms.scale.origine.top> Perspiciatis, recusandae. Nisi commodi, nulla ipsam enim architecto vel quod molestiae modi! Sed,
            laudantium veritatis sapiente, quis aperiam vitae, pariatur quia tempora quae placeat assumenda hic quidem corrupti. Sapiente, quia.</p>
       </section>
       <section>
-        <button @click="expanded = 3">bouton 3</button>
+        <button :class="{ ouvert: expanded === 3, }" @click="expanded = 3">bouton 3</button>
         <p x-show="expanded === 3" x-collapse.duration.1000ms.scale.origine.top> Perspiciatis, recusandae. Nisi commodi, nulla ipsam enim architecto vel quod molestiae modi! Sed,
            laudantium veritatis sapiente, quis aperiam vitae, pariatur quia tempora quae placeat assumenda hic quidem corrupti. Sapiente, quia.</p>
       </section>
   </body>
 </html>
+
