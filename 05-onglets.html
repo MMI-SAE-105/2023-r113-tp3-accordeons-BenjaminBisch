@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Onglets</title>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
     <style>
 
 ul[role="tablist"] {
@@ -48,7 +50,7 @@ ul[role="tablist"] li:hover {
           opacity: 0;
           position: absolute;
       }
-      [role="tabpanel"][x-show] {
+      [role="tabpanel"].actif {
           display: block;
           opacity: 1;
           transition: opacity 0.3s ease-in-out;
@@ -62,25 +64,25 @@ ul[role="tablist"] li:hover {
   <div id="onglets" x-data="{isOpen : 1,}">
 
       <ul role="tablist">
-        <li x-bind:class="{actif:isOpen === 1,}" role="tab" @click="ouvert = 1">Onglet 1</li>
-        <li x-bind:class="{actif:isOpen === 2,}" role="tab" @click="ouvert = 2">Onglet 2</li>
-        <li x-bind:class="{actif:isOpen === 3,}" role="tab" @click="ouvert = 3">Onglet 3</li>
+        <li :class="{actif:isOpen === 1,}" role="tab" @click="isOpen = 1">Onglet 1</li>
+        <li x-bind:class="{actif:isOpen === 2,}" role="tab" @click="isOpen = 2">Onglet 2</li>
+        <li x-bind:class="{actif:isOpen === 3,}" role="tab" @click="isOpen = 3">Onglet 3</li>
       </ul>
      
       <div>
-        <div role="tabpanel" x-show="ouvert === 1">
+        <div role="tabpanel" :class="{actif:isOpen === 1,}">
           <h1>Panneau 1</h1>
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
             Voluptatum, dignissimos, molestiae accusamus animi non nostrum aperiam fuga,
             delectus veritatis fugiat libero omnis quia quibusdam amet provident necessitatibus explicabo rem eaque.</p>
         </div>
-        <div role="tabpanel" x-show="ouvert === 2">
+        <div role="tabpanel" :class="{actif:isOpen === 2,}">
           <h1>Panneau 2</h1>
           <p>Voluptatum quis praesentium ab nobis accusamus voluptatibus,
             quo sunt blanditiis natus non minima perferendis in similique eos rem impedit,
             adipisci fugiat aperiam error doloremque illum neque repellendus incidunt odit. Facilis.</p>
         </div>
-        <div role="tabpanel" x-show="ouvert === 3">
+        <div role="tabpanel" :class="{actif:isOpen === 3,}">
           <h1>Panneau 3</h1>
           <p>Dolorem voluptate, repellendus animi voluptas,
             iste eligendi doloribus quos excepturi eum vitae accusantium facere tempora
