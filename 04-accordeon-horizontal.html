@@ -47,10 +47,14 @@
   </style>
 
 <ul id="accordeon" :class="{actif:isOpen === 1,}">
+  <div class="accordeon" x-data="{isopen: 0,}">
+
   <li>
     <figure>
+      <button @click="isopen = 1">
       <img src="https://picsum.photos/100?random=1" alt="" width="102">
-      <figcaption>
+    </button>
+      <figcaption x-show="isopen === 1" x-transition.duration.5000ms.scale.origine.top>
         <h3>Lorem, ipsum dolor.</h3>
         <p>Lorem ipsum dolor sit amet consectetur.</p>
       </figcaption>
@@ -58,8 +62,10 @@
   </li>
   <li>
     <figure>
+      <button @click="isopen = 2">
       <img src="https://picsum.photos/100?random=2" alt="" width="102">
-      <figcaption>
+    </button>
+      <figcaption x-show="isopen === 2" x-transition.duration.5000ms.scale.origine.top>
         <h3>Nostrum, assumenda voluptates.</h3>
         <p>Alias distinctio ea ad non iste?</p>
       </figcaption>
@@ -67,8 +73,10 @@
   </li>
   <li>
     <figure>
+      <button @click="isopen = 3">
       <img src="https://picsum.photos/100?random=3" alt="" width="102">
-      <figcaption>
+    </button>
+      <figcaption x-show="isopen === 3" x-transition.duration.5000ms.scale.origine.top>
         <h3>Eligendi, distinctio tempore.</h3>
         <p>Nam, maiores. Eveniet, ipsum. Maxime, sit?</p>
       </figcaption>
