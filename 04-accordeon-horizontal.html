@@ -5,12 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Accordéon horizontal</title>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
   <body>
     <h1>Accordéon horizontal</h1>
   </body> 
 
-<ul id="accordeon">
+  <style>
+    #accordeon {
+     display: flex; 
+     margin: 0; 
+     padding: 0;
+}
+
+#accordeon li {
+     width: 107px;
+     overflow: hidden; 
+     transition: width 0.3s ease; 
+     background-color: #eee;
+     list-style: none;
+     margin: 3px; 
+     padding: 5px;
+     border-radius: 5px;
+}
+
+#accordeon li.actif {
+     width: 317px; 
+}
+
+#accordeon li figure {
+     margin: 0; 
+     display: flex; 
+     width: 317px; 
+}
+#accordeon li figure figcaption {
+     width: 200px;
+     padding: 10px;
+     display: flex; 
+     justify-content: space-between; 
+}
+  </style>
+
+<ul id="accordeon" :class="{actif:isOpen === 1,}">
   <li>
     <figure>
       <img src="https://picsum.photos/100?random=1" alt="" width="102">
