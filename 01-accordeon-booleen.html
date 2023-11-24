@@ -9,7 +9,7 @@
 
     <style>
       .accordeon {
-width: 300px;
+width: 320px;
 border: 1px solid #ccc;
 padding: 20px;
 }
@@ -36,9 +36,13 @@ background-color: #FF9800;
 color: white;
 }
 
-.accordeon p {
-display: none;
-margin-top: 10px;
+button.actif {
+  background-color: #70d273;
+color: rgb(255, 255, 255);
+padding: 10px 20px;
+border: none;
+cursor: pointer;
+transition: background-color 0.3s;
 }
     </style>
   </head>
@@ -55,7 +59,7 @@ margin-top: 10px;
         <p x-show="isopen"> Perspiciatis, recusandae. Nisi commodi, nulla ipsam enim architecto vel quod molestiae modi! Sed, laudantium veritatis sapiente, quis aperiam vitae, pariatur quia tempora quae placeat assumenda hic quidem corrupti. Sapiente, quia.</p>
       </section>
       <section x-data="{isopen: false,}">
-        <button @click="isopen = !isopen">bouton 3</button>
+        <button @click="isopen = !isopen" :class="{actif: isopen}">bouton 3</button>
         <p x-show="isopen"> Facilis, sed cum. Quis dolorem, hic quae cum doloremque quas distinctio repellat animi velit dicta voluptas, natus iusto aliquam? Commodi neque accusamus sit nostrum non quam temporibus doloremque molestiae sint.</p>
       </section>
     </div>
