@@ -6,21 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Accordéon avec des booléens</title>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+      .accordeon {
+width: 300px;
+border: 1px solid #ccc;
+padding: 20px;
+}
+
+.accordeon section {
+margin-bottom: 20px;
+}
+
+.accordeon button {
+background-color: #4CAF50;
+color: white;
+padding: 10px 20px;
+border: none;
+cursor: pointer;
+transition: background-color 0.3s;
+}
+
+.accordeon button:hover {
+background-color: #45a049;
+}
+
+.accordeon button.ouvert {
+background-color: #FF9800;
+color: white;
+}
+
+.accordeon p {
+display: none;
+margin-top: 10px;
+}
+    </style>
   </head>
   <body>
     <h1>Accordéon avec des booléens</h1>
 
-    <div class="accordeon">
+    <div class="accordeon" >
       <section x-data="{isopen: false,}">
-        <button @click="isopen = !isopen" >bouton 1</button>
+        <button @click="isopen = !isopen" :class="{actif: isopen}">bouton 1</button>
         <p x-show="isopen === true"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga reiciendis vel ipsum eaque rem in ratione fugiat qui voluptatem minus esse temporibus doloremque aspernatur id, pariatur praesentium, possimus nam? Tempora.</p>
       </section>
       <section x-data="{isopen: false,}">
-        <button @click="isopen = !isopen">bouton 2</button>
+        <button @click="isopen = !isopen" :class="{actif: isopen}">bouton 2</button>
         <p x-show="isopen"> Perspiciatis, recusandae. Nisi commodi, nulla ipsam enim architecto vel quod molestiae modi! Sed, laudantium veritatis sapiente, quis aperiam vitae, pariatur quia tempora quae placeat assumenda hic quidem corrupti. Sapiente, quia.</p>
       </section>
       <section x-data="{isopen: false,}">
-        <button @click="isopen = !isopen">bouton 2</button>
+        <button @click="isopen = !isopen">bouton 3</button>
         <p x-show="isopen"> Facilis, sed cum. Quis dolorem, hic quae cum doloremque quas distinctio repellat animi velit dicta voluptas, natus iusto aliquam? Commodi neque accusamus sit nostrum non quam temporibus doloremque molestiae sint.</p>
       </section>
     </div>
